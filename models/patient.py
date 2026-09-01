@@ -19,6 +19,7 @@ class Patient(models.Model):
     is_active = fields.Boolean(string="فعال", default=True)
     description = fields.Text(string="توضیحات")
 
+
     @api.depends('birth_date')
     def _compute_age(self):
         today = fields.Date.today()
