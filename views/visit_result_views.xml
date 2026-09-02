@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Action -->
+        <record id="action_visit_result" model="ir.actions.act_window">
+            <field name="name">ویزیت‌ها</field>
+            <field name="res_model">visit_result</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_visit_result_tree" model="ir.ui.view">
+            <field name="name">visit.result.tree</field>
+            <field name="model">visit_result</field>
+            <field name="arch" type="xml">
+                <tree string="ویزیت‌ها" default_order="id desc">
+                    <field name="Doctor"/>
+                    <field name="Patient"/>
+                    <field name="factor_consultation_fee"/>
+                    <field name="Status"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_visit_result_form" model="ir.ui.view">
+            <field name="name">visit.result.form</field>
+            <field name="model">visit_result</field>
+            <field name="arch" type="xml">
+                <form string="ویزیت">
+
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="Doctor"/>
+                                <field name="Patient"/>
+                            </group>
+
+                            <group>
+                                <field name="factor_consultation_fee"/>
+                                <field name="Status"/>
+                                <field name="is_active"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_visit_result_search" model="ir.ui.view">
+            <field name="name">visit.result.search</field>
+            <field name="model">visit_result</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="Doctor"/>
+                    <field name="Patient"/>
+                    <field name="Status"/>
+
+                    <filter
+                        name="done"
+                        string="ویزیت‌های انجام شده"
+                        domain="[('Status', '=', 'done')]"
+                    />
+
+                    <filter
+                        name="pending"
+                        string="ویزیت‌های در حال انجام"
+                        domain="[('Status', '=', 'pending')]"
+                    />
+
+                    <filter
+                        name="cancel"
+                        string="ویزیت‌های لغو شده"
+                        domain="[('Status', '=', 'cancel')]"
+                    />
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

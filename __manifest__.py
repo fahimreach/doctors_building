@@ -7,7 +7,12 @@
     'license': 'LGPL-3',
     'depends': ['base'],
     'data': [
-       
+
+    'views/doctors_views.xml'
+    'views/patient_views.xml'
+    'views/visit_result_views'
+    'views/manu.xml'
+
     ],
     'application': True,
     'installable': True,
