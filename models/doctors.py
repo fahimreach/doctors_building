@@ -7,7 +7,7 @@ class Doctors(models.Model):
     _description = 'Doctors'
 
     first_name = fields.Char(string="نام", required=True)
-    
+
     last_name = fields.Char(string="نام خانوادگی")
     
     medical_code = fields.Integer(string="شماره نظام پزشکی",required=True)
