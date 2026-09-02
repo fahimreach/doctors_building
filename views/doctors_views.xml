@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_medical_doctors" model="ir.actions.act_window">
+            <field name="name">پزشکان</field>
+            <field name="res_model">medical.doctors</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_medical_doctors_tree" model="ir.ui.view">
+            <field name="name">medical.doctors.tree</field>
+            <field name="model">medical.doctors</field>
+            <field name="arch" type="xml">
+                <tree string="پزشکان" default_order="id desc">
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="medical_code"/>
+                    <field name="specialty"/>
+                    <field name="phone"/>
+                    <field name="room_number"/>
+                    <field name="is_active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_medical_doctors_form" model="ir.ui.view">
+            <field name="name">medical.doctors.form</field>
+            <field name="model">medical.doctors</field>
+            <field name="arch" type="xml">
+                <form string="پزشک">
+
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="medical_code"/>
+                                <field name="specialty"/>
+                                <field name="gender"/>
+                            </group>
+
+                            <group>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="birth_date"/>
+                                <field name="room_number"/>
+                                <field name="is_active"/>
+                                <field name="consultation_fee"/>
+                            </group>
+
+                        </group>
+
+                        <notebook>
+
+                            <page string="توضیحات">
+                                <field name="description"/>
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="view_medical_doctors_search" model="ir.ui.view">
+            <field name="name">medical.doctors.search</field>
+            <field name="model">medical.doctors</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="medical_code"/>
+                    <field name="specialty"/>
+                    <field name="phone"/>
+
+                    <filter
+                        name="active"
+                        string="پزشکان فعال"
+                        domain="[('is_active', '=', True)]"
+                    />
+
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>
